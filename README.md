@@ -24,7 +24,7 @@ Current operating system support: Unix (via the `nix` crate).
 Please use [cargo-edit](https://crates.io/crates/cargo-edit) to always add the latest version of this library:
 
 ```cmd
-cargo add clack
+# cargo add clack # Reserved by another developer.
 ```
 
 ## Example
