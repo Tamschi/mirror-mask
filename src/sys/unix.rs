@@ -1,22 +1,29 @@
+use std::{
+	convert::TryInto,
+	fmt::{self, Debug, Formatter},
+};
+
 use crate::Intent;
 use nix::{
 	libc::c_int,
-	sys::signal::{sigaction, SaFlags, SigAction, SigHandler, SigSet, Signal},
+	sys::signal::{kill, sigaction, SaFlags, SigAction, SigHandler, SigSet, Signal},
+	unistd::Pid,
 };
 
-pub unsafe fn setup(intent: Intent) -> Result<SysHandle, ()> {
+pub fn setup(intent: Intent) -> Result<Handle, ()> {
 	let signal = intent_to_signal(intent);
-	let previous_action = sigaction(
-		signal,
-		&SigAction::new(
-			SigHandler::Handler(sig_handler),
-			SaFlags::SA_NODEFER,
-			SigSet::empty(),
-		),
-	)
+	let previous_action = unsafe {
+		sigaction(
+			signal,
+			&SigAction::new(
+				SigHandler::Handler(sig_handler),
+				SaFlags::SA_NODEFER,
+				SigSet::empty(),
+			),
+		)
+	}
 	.map_err(|_| ())?;
-	Ok(SysHandle {
-		signal,
+	Ok(Handle {
 		saved_action: previous_action,
 	})
 }
@@ -27,14 +34,19 @@ fn intent_to_signal(intent: Intent) -> Signal {
 	}
 }
 
-pub struct SysHandle {
-	signal: Signal,
+pub struct Handle {
 	saved_action: SigAction,
 }
 
-impl Drop for SysHandle {
-	fn drop(&mut self) {
-		match unsafe { sigaction(self.signal, &self.saved_action) } {
+impl Debug for Handle {
+	fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+		f.debug_struct("Handle (unix)").finish_non_exhaustive()
+	}
+}
+
+impl Handle {
+	pub fn free(self, intent: Intent) {
+		match unsafe { sigaction(intent_to_signal(intent), &self.saved_action) } {
 			Ok(_) => (),
 			Err(errno) => panic!("{}", errno),
 		}
@@ -76,4 +88,12 @@ extern "C" fn sig_handler(signal: c_int) {
 		s if s == Signal::SIGSYS as i32 => unimplemented!(),
 		_ => unreachable!(),
 	})
+}
+
+pub fn send_intent_to_process(pid: u32, intent: Intent) {
+	kill(
+		Pid::from_raw(pid.try_into().unwrap()),
+		intent_to_signal(intent),
+	)
+	.ok();
 }
