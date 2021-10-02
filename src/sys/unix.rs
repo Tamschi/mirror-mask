@@ -1,6 +1,7 @@
 use std::{
 	convert::TryInto,
 	fmt::{self, Debug, Formatter},
+	mem,
 };
 
 use crate::Intent;
@@ -47,7 +48,7 @@ impl Debug for Handle {
 impl Handle {
 	pub fn free(self, intent: Intent) {
 		match unsafe { sigaction(intent_to_signal(intent), &self.saved_action) } {
-			Ok(_) => (),
+			Ok(_) => mem::forget(self),
 			Err(errno) => panic!("{}", errno),
 		}
 	}

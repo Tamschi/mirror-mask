@@ -7,7 +7,7 @@ use std::{
 	convert::TryInto,
 	fmt::Debug,
 	marker::PhantomData,
-	mem::{self, ManuallyDrop, MaybeUninit},
+	mem::ManuallyDrop,
 	process::Child,
 	sync::atomic::{AtomicU32, Ordering},
 }; //TODO

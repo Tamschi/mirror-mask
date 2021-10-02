@@ -1,5 +1,4 @@
 use std::{env::args, io::stdin, process::Command};
-
 use structopt::StructOpt;
 
 #[derive(StructOpt)]
@@ -40,7 +39,10 @@ fn main() {
 
 	println!(" Spawned with id {}", child.id());
 
-	match child.wait() {
+	match {
+		let _relay = clack::Intent::InterruptFromKeyboard.relay_to_child(&child);
+		child.wait()
+	} {
 		Ok(exit_status) => println!("Child process exited with status {}.", exit_status),
 		Err(error) => println!("Child exited unsuccessfully: {}", error),
 	}
