@@ -41,7 +41,9 @@ pub struct Handle {
 
 impl Debug for Handle {
 	fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
-		f.debug_struct("Handle (unix)").finish_non_exhaustive()
+		f.debug_struct("Handle (unix)")
+			.field("(private)", &"..")
+			.finish()
 	}
 }
 
