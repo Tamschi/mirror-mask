@@ -4,8 +4,9 @@ use structopt::StructOpt;
 
 #[derive(StructOpt)]
 /// A program for testing `clack`.
+/// Launches itself with `-i`, preserving `-r`.
 ///
-/// Press `Ctrl-c` to abort this program at some point.
+/// Press `Ctrl-c` during a prompt to test signal forwarding.
 struct Options {
 	/// Read a line from standard input before doing anything else.
 	/// Then exit unless `-r` is also specified.

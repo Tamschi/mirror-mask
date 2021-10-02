@@ -6,3 +6,6 @@
 pub mod readme {
 	doc_comment::doctest!("../README.md");
 }
+
+#[cfg(not(unix))]
+compile_error!("`clack` currently supports only the following platforms: `unix` (via `nix`)");
