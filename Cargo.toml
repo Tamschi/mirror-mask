@@ -24,10 +24,21 @@ include = [
 resolver = "2"
 publish = false
 
+[lib]
+
+[[bin]]
+name = "clack-test"
+path = "clack-test/main.rs"
+required-features = ["clack-test"]
+doc = false
+
 [badges]
 is-it-maintained-issue-resolution = { repository = "Tamschi/clack" }
 is-it-maintained-open-issues = { repository = "Tamschi/clack" }
 maintenance = { status = "experimental" } # This may differ between branches.
+
+[features]
+clack-test = ["structopt"]
 
 [dev-dependencies]
 cargo-husky = "1.5.0"
@@ -35,3 +46,6 @@ doc-comment = "0.3.3"
 git_info = "0.1.2"
 version-sync = "0.9.3"
 wasm-bindgen-test = "0.3.28"
+
+[dependencies]
+structopt = { version = "0.3.23", optional = true }
