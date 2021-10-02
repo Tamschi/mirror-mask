@@ -3,7 +3,7 @@
 version = 3
 
 [[package]]
-name = "TODO_CRATE_NAME"
+name = "clack"
 version = "0.0.1"
 dependencies = [
  "cargo-husky",
