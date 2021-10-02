@@ -17,6 +17,8 @@
 
 A scoped signal forwarder.
 
+Current operating system support: Unix (via the `nix` crate).
+
 ## Installation
 
 Please use [cargo-edit](https://crates.io/crates/cargo-edit) to always add the latest version of this library:
@@ -28,7 +30,17 @@ cargo add clack
 ## Example
 
 ```rust
-// TODO_EXAMPLE
+let mut child = std::process::Command
+  ::new("ping")
+  .args(["example.com", "-c", "3"])
+  .spawn().unwrap();
+
+{
+  let _relay_guard = clack::Intent::InterruptFromKeyboard.relay_to_child(&child); // <--
+  child.wait().ok(); // Press Ctrl-c about here.
+}
+
+println!("Still alive!")
 ```
 
 ## License
@@ -49,6 +61,24 @@ for inclusion in the work by you, as defined in the Apache-2.0 license, shall be
 dual licensed as above, without any additional terms or conditions.
 
 See [CONTRIBUTING](CONTRIBUTING.md) for more information.
+
+### Interactive Testing
+
+Run
+
+```bash
+cargo run --all-features
+```
+
+or
+
+```bash
+cargo run --all-features -- -r
+```
+
+and press (with `-r`/`--recursive` repeatedly Enter and then) Ctrl+c.
+
+The program should exit gracefully.
 
 ## [Code of Conduct](CODE_OF_CONDUCT.md)
 
