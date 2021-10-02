@@ -40,7 +40,7 @@ let mut child = std::process::Command
   child.wait().ok(); // Press Ctrl-c about here.
 }
 
-println!("Still alive!")
+println!("Still alive!");
 ```
 
 ## License
