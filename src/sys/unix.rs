@@ -18,7 +18,7 @@ pub fn setup(intent: Intent) -> Result<Handle, ()> {
 			signal,
 			&SigAction::new(
 				SigHandler::Handler(sig_handler),
-				SaFlags::SA_NODEFER,
+				SaFlags::SA_NODEFER | SaFlags::SA_RESTART,
 				SigSet::empty(),
 			),
 		)
