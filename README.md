@@ -21,12 +21,22 @@ Unrelated to the 2005 fantasy film of similar name.
 
 Current operating system support: Unix (via the `nix` crate).
 
+The crate otherwise compiles without function,
+unless the `"required"` feature (active by default) is active.
+
 ## Installation
 
 Please use [cargo-edit](https://crates.io/crates/cargo-edit) to always add the latest version of this library:
 
 ```cmd
 cargo add mirror-mask
+```
+
+If your program does not rely on `mirror-mask` for correctness,
+you can allow it to compile without function for unsupported targets.
+
+```cmd
+cargo add mirror-mask --no-default-features
 ```
 
 ## Example

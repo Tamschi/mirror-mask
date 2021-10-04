@@ -17,7 +17,7 @@ pub mod readme {
 	doc_comment::doctest!("../README.md");
 }
 
-#[cfg(not(unix))]
+#[cfg(all(not(unix), feature = "required"))]
 compile_error!("`mirror-mask` currently supports only the following platforms: `unix` (via `nix`)");
 
 /// Maps to signals on Unix, messages on Windows.
@@ -35,6 +35,11 @@ mod sys {
 	mod unix;
 	#[cfg(unix)]
 	pub use unix::{send_intent_to_process, setup, Handle};
+
+	#[cfg(not(unix))]
+	mod null;
+	#[cfg(not(unix))]
+	pub use null::{send_intent_to_process, setup, Handle};
 
 	impl Drop for Handle {
 		fn drop(&mut self) {
