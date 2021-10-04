@@ -17,7 +17,7 @@
 
 A scoped signal deflector.
 
-Unrelated to the 2005 fantasy film of similar name.
+(Unrelated to the 2005 fantasy film of similar name.)
 
 Current operating system support: Unix (via the `nix` crate).
 
