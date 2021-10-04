@@ -1,4 +1,4 @@
-#![doc(html_root_url = "https://docs.rs/clack/0.0.1")]
+#![doc(html_root_url = "https://docs.rs/mirror-mask/0.0.1")]
 #![warn(clippy::pedantic)]
 #![allow(clippy::semicolon_if_nothing_returned)]
 #![allow(dead_code)]
@@ -18,7 +18,7 @@ pub mod readme {
 }
 
 #[cfg(not(unix))]
-compile_error!("`clack` currently supports only the following platforms: `unix` (via `nix`)");
+compile_error!("`mirror-mask` currently supports only the following platforms: `unix` (via `nix`)");
 
 /// Maps to signals on Unix, messages on Windows.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -117,6 +117,6 @@ impl<'a> Drop for RelayGuard<'a> {
 		let removed = target_of_intent(self.intent).swap(self.shadowed_target, Ordering::Relaxed);
 		// <-- 2.
 
-		assert_eq!(removed, self.shadowing_target, "Removed target did not match shadowing target. There were likely some threading issues. Note that `clack` performs no synchronisation beyong _very_ basic memory safety, but still requires correct context stacking!")
+		assert_eq!(removed, self.shadowing_target, "Removed target did not match shadowing target. There were likely some threading issues. Note that `mirror-mask` performs no synchronisation beyong _very_ basic memory safety, but still requires correct context stacking!")
 	}
 }

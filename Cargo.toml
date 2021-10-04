@@ -1,13 +1,13 @@
 [package]
-name = "clack"
+name = "mirror-mask"
 version = "0.0.1"
 authors = ["Tamme Schichler <tamme@schichler.dev>"]
 edition = "2018"
 description = "A scoped signal forwarder."
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/Tamschi/clack"
-homepage = "https://github.com/Tamschi/clack/tree/v0.0.1"
-documentation = "https://docs.rs/clack/0.0.1"
+repository = "https://github.com/Tamschi/mirror-mask"
+homepage = "https://github.com/Tamschi/mirror-mask/tree/v0.0.1"
+documentation = "https://docs.rs/mirror-mask/0.0.1"
 keywords = [] #TODO
 categories = [] #TODO
 readme = "README.md"
@@ -27,18 +27,18 @@ publish = false
 [lib]
 
 [[bin]]
-name = "clack-test"
-path = "clack-test/main.rs"
-required-features = ["clack-test"]
+name = "mirror-mask-test"
+path = "mirror-mask-test/main.rs"
+required-features = ["mirror-mask-test"]
 doc = false
 
 [badges]
-is-it-maintained-issue-resolution = { repository = "Tamschi/clack" }
-is-it-maintained-open-issues = { repository = "Tamschi/clack" }
+is-it-maintained-issue-resolution = { repository = "Tamschi/mirror-mask" }
+is-it-maintained-open-issues = { repository = "Tamschi/mirror-mask" }
 maintenance = { status = "experimental" } # This may differ between branches.
 
 [features]
-clack-test = ["structopt"]
+mirror-mask-test = ["structopt"]
 
 [dev-dependencies]
 cargo-husky = "1.5.0"

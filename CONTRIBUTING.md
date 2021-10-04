@@ -7,9 +7,9 @@ Unclear documentation or error messages are considered bugs.
 
 For anything else, please use the ["Custom issue"] template.
 
-[bugs]: https://github.com/Tamschi/clack/issues/new?assignees=&labels=bug&template=bug_report.md&title=
-[feature requests]: https://github.com/Tamschi/clack/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=
-["Custom issue"]: https://github.com/Tamschi/clack/issues/new?assignees=&labels=&template=custom_issue.md&title=
+[bugs]: https://github.com/Tamschi/mirror-mask/issues/new?assignees=&labels=bug&template=bug_report.md&title=
+[feature requests]: https://github.com/Tamschi/mirror-mask/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=
+["Custom issue"]: https://github.com/Tamschi/mirror-mask/issues/new?assignees=&labels=&template=custom_issue.md&title=
 
 ## Pull Requests
 
@@ -78,15 +78,15 @@ but I'll otherwise just take care of it.
 
 (Don't undo changes I make to labels without immediate reason.)
 
-See <https://github.com/Tamschi/clack/issues/labels> for details on individual labels.
+See <https://github.com/Tamschi/mirror-mask/issues/labels> for details on individual labels.
 
 ### Categories
 
 - Assorted
 
-  Labels without prefix like [`breaking`](https://github.com/Tamschi/clack/labels/breaking),
-  [`good first issue`](https://github.com/Tamschi/clack/labels/good%20first%20issue) or
-  [`help wanted`](https://github.com/Tamschi/clack/labels/help%20wanted).
+  Labels without prefix like [`breaking`](https://github.com/Tamschi/mirror-mask/labels/breaking),
+  [`good first issue`](https://github.com/Tamschi/mirror-mask/labels/good%20first%20issue) or
+  [`help wanted`](https://github.com/Tamschi/mirror-mask/labels/help%20wanted).
 
 - `domain:`
 

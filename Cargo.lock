@@ -65,19 +65,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
-name = "clack"
-version = "0.0.1"
-dependencies = [
- "cargo-husky",
- "doc-comment",
- "git_info",
- "nix",
- "structopt",
- "version-sync",
- "wasm-bindgen-test",
-]
-
-[[package]]
 name = "clap"
 version = "2.33.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -202,6 +189,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "59accc507f1338036a0477ef61afdae33cde60840f4dfe481319ce3ad116ddf9"
 dependencies = [
  "autocfg",
+]
+
+[[package]]
+name = "mirror-mask"
+version = "0.0.1"
+dependencies = [
+ "cargo-husky",
+ "doc-comment",
+ "git_info",
+ "nix",
+ "structopt",
+ "version-sync",
+ "wasm-bindgen-test",
 ]
 
 [[package]]

@@ -2,8 +2,7 @@
 
 #[test]
 fn installation() {
-	// TODO
-	// version_sync::assert_contains_regex!("README.md", "^cargo add {name}$");
+	version_sync::assert_contains_regex!("README.md", "^cargo add {name}$");
 }
 
 #[test]

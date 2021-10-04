@@ -1,4 +1,4 @@
-# clack Changelog
+# mirror-mask Changelog
 
 <!-- markdownlint-disable no-trailing-punctuation -->
 
