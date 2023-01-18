@@ -53,4 +53,4 @@ wasm-bindgen-test = "0.3.32"
 structopt = { version = "0.3.26", optional = true }
 
 [target."cfg(unix)".dependencies]
-nix = "0.25.0"
+nix = "0.26.2"
